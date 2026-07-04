@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arabic-nlp-toolkit"
+version = "0.2.0"
+description = "A lightweight toolkit for Arabic text processing and NLP"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Jacob Khaled", email = "jacobkhaled01@example.com"}
+]
+keywords = [
+    "arabic",
+    "nlp",
+    "natural-language-processing",
+    "text-processing",
+    "tokenization",
+    "sentiment-analysis",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Natural Language :: Arabic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=3.0", "black>=22.0", "flake8>=4.0"]
+docs = ["sphinx>=4.0", "sphinx-rtd-theme>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/jacobkhaled01-spec/arabic-nlp-toolkit"
+Documentation = "https://github.com/jacobkhaled01-spec/arabic-nlp-toolkit/wiki"
+Repository = "https://github.com/jacobkhaled01-spec/arabic-nlp-toolkit.git"
+"Bug Tracker" = "https://github.com/jacobkhaled01-spec/arabic-nlp-toolkit/issues"
+
+[tool.setuptools]
+packages = ["arabic_nlp_toolkit"]
+package-dir = {"" = "."}
+
+[tool.setuptools.package-data]
+arabic_nlp_toolkit = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "--cov=arabic_nlp_toolkit --cov-report=term-missing --strict-markers"
+
+[tool.coverage.run]
+branch = true
+source = ["arabic_nlp_toolkit"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
